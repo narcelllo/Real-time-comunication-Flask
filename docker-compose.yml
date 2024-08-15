@@ -1,0 +1,18 @@
+services:
+
+  db:
+    image: mysql:latest
+    restart: always
+
+    environment:
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'admin123'
+      MYSQL_DATABASE: 'Real-time'
+      MYSQL_ROOT_PASSWORD: 'admin123'
+    ports:
+      - "3306:3306"
+    expose:
+      #Opens port 3306 on the container
+      - '3306'
+    volumes:
+      - C:\DEV\rocketseat\Real-time-mysql:/var/lib/mysql

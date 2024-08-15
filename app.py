@@ -2,8 +2,9 @@ from flask import Flask, jsonify, request
 from repository.database import db
 from db_models.payment import Payment
 from datetime import datetime, timedelta
+
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:admin123@127.0.0.1:3306/Real-time'
 app.config['SECRET_KEY'] = 'SECRET_KEY_WEBSOCKET'
 
 db.init_app(app)
@@ -14,7 +15,7 @@ def create_payments_pix():
     data = request.get_json()
     
     if 'value' not in data:
-        return jsonify("message": "Invalid value"), 400
+        return jsonify({"message": "Invalid value"}), 400
     
     expiration_date = datetime.new() + timedelta(minutes=30)
 
