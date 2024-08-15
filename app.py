@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 from repository.database import db
+from db_models.payment import Payment
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -9,7 +10,7 @@ db.init_app(app)
 
 #Route responsible for creating the payment.
 @app.route('/payments/pix', methods={'POST'})
-def create_peyments_pix():
+def create_payments_pix():
     return jsonify({"message": "the pyment has been created"})
 
 #Route responsible for receiving the payment confirmation. "WebHook"
@@ -20,7 +21,7 @@ def pix_confirmation():
 #Route responsible for displaying the payment confirmation.
 @app.route('/payments/pix/<int:payment_id>', methods=['GET'])
 def payment_pix_page(payment_id):
-    return 'peyment pix'
+    return 'payment pix'
 
 if __name__ == '__main__':
     app.run(debug=True)
