@@ -1,5 +1,7 @@
 from flask import Flask, jsonify
 
+app = Flask(__name__)
+
 #Route responsible for creating the payment.
 @app.route('/payments/pix', methods={'POST'})
 def create_peyments_pix():
