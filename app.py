@@ -17,7 +17,7 @@ def create_payments_pix():
     if 'value' not in data:
         return jsonify({"message": "Invalid value"}), 400
     
-    expiration_date = datetime.new() + timedelta(minutes=30)
+    expiration_date = datetime.now() + timedelta(minutes=30)
 
     new_payment = Payment(value=data['value'],
                           expiration_date=expiration_date)
@@ -30,7 +30,7 @@ def create_payments_pix():
 #Route responsible for receiving the payment confirmation. "WebHook"
 @app.route('/payments/pix/confirmation', methods={'POST'})
 def pix_confirmation():
-    return jsonify({"message": "the pyment has been confirmed"})
+    return jsonify({"message": "The pyment has been confirmed"})
 
 #Route responsible for displaying the payment confirmation.
 @app.route('/payments/pix/<int:payment_id>', methods=['GET'])
