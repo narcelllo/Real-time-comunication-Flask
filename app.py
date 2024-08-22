@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from repository.database import db
 from db_models.payment import Payment
 from datetime import datetime, timedelta
+from payments.pix import Pix
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:admin123@127.0.0.1:3306/Real-time'
@@ -21,6 +22,11 @@ def create_payments_pix():
 
     new_payment = Payment(value=data['value'],
                           expiration_date=expiration_date)
+    
+    pix_obj = Pix()
+    data_payment_pix = pix_obj.create_payment()
+    new_payment_
+    
     db.session.add(new_payment)
     db.session.commit()
 

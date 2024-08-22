@@ -4,8 +4,8 @@ class Payment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     value = db.Column(db.Float)
     paid = db.Column(db.Boolean, default=False)
-    bank_payment_id = db.Column(db.Integer, nullable=True)
-    qr_code = db.Column(db.String(100), nullable=True)
+    bank_payment_id = db.Column(db.String, nullable=True)
+    qr_code = db.Column(db.String(200), nullable=True)
     expiration_date = db.Column(db.DateTime)
 
     def to_dict(self):
