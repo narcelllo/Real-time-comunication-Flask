@@ -4,14 +4,14 @@ from db_models.payment import Payment
 from datetime import datetime, timedelta
 from payments.pix import Pix
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:admin123@127.0.0.1:3306/Real-time'
-app.config['SECRET_KEY'] = 'SECRET_KEY_WEBSOCKET'
+create_app = Flask(__name__)
+create_app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:admin123@127.0.0.1:3306/Real-time'
+create_app.config['SECRET_KEY'] = 'SECRET_KEY_WEBSOCKET'
 
-db.init_app(app)
+db.init_app(create_app)
 
 #Route responsible for creating the payment.
-@app.route('/payments/pix', methods={'POST'})
+@create_app.route('/payments/pix', methods={'POST'})
 def create_payments_pix():
     data = request.get_json()
     
@@ -25,7 +25,6 @@ def create_payments_pix():
     
     pix_obj = Pix()
     data_payment_pix = pix_obj.create_payment()
-    new_payment_
     
     db.session.add(new_payment)
     db.session.commit()
@@ -34,14 +33,14 @@ def create_payments_pix():
                     "payment": new_payment.to_dict()})
 
 #Route responsible for receiving the payment confirmation. "WebHook"
-@app.route('/payments/pix/confirmation', methods={'POST'})
+@create_app.route('/payments/pix/confirmation', methods={'POST'})
 def pix_confirmation():
     return jsonify({"message": "The pyment has been confirmed"})
 
 #Route responsible for displaying the payment confirmation.
-@app.route('/payments/pix/<int:payment_id>', methods=['GET'])
+@create_app.route('/payments/pix/<int:payment_id>', methods=['GET'])
 def payment_pix_page(payment_id):
     return 'payment pix'
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    create_app.run(debug=True)
