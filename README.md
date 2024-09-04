@@ -69,9 +69,9 @@ Você deve visualizar a pagina:
 Caso o pagamento não exista, a pagina abaixo será apresentada:
 ![404 Payment](documentation/ex404TemplatePayment.png)
 
-4. Para confirmar o pagamento você precisa copiar a `"bank_payment_id":` criado como resposta em seu Postman e colar na rota `{{baseUrl}}/payments/pix/confirmation`:
+4. Para confirmar o pagamento você precisa copiar a `"bank_payment_id":` criado como resposta em seu Postman:
 ![Example cpnfirm payment_id](documentation/bank_payment_id.png)
-
+ Cole na rota `{{baseUrl}}/payments/pix/confirmation`:
 ![Example cpnfirm](documentation/confirmPayment_id.png)
 A pagina abaixo deverá aparecer confirmando o "pagamento":
 ![Confirm Payment](documentation/confirmPayment.png)
