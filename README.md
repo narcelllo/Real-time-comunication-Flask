@@ -49,7 +49,7 @@ exit()
 ```
 ## Postman:
   1. Importe a pasta `Payment` e selecione as opções de colections e environments de acordo com o exemplo:
-  ![Example import collections and environments](documentation\Postman.png)
+  ![Example import collections and environments](documentation/Postman.png)
 
 ## Execução
 1. Execute o comando abaixo em seu terminal.
@@ -59,22 +59,22 @@ python app.py
 Isso executa seu server e permitindo a execução da API
 
 2. Crie um pagamento via postman.
-![Create payment](documentation\exCreatePayment.png)
+![Create payment](documentation/exCreatePayment.png)
 3. Em seu navegador  acesse a URL:
 ```
 http://127.0.0.1:5000/payments/pix/"id do Payment desejado"
 ```
 Você deve visualizar a pagina: 
-![Payment](documentation\exTemplatePayment.png)
+![Payment](documentation/exTemplatePayment.png)
 Caso o pagamento não exista, a pagina abaixo será apresentada:
-![404 Payment](documentation\ex404TemplatePayment.png)
+![404 Payment](documentation/ex404TemplatePayment.png)
 
 4. Para confirmar o pagamento você precisa copiar a `"bank_payment_id":` criado como resposta em seu Postman:
-![Example cpnfirm payment_id](documentation\bank_payment_id.png)
+![Example cpnfirm payment_id](documentation/bank_payment_id.png)
 e colar na rota `{{baseUrl}}/payments/pix/confirmation`:
-![Example cpnfirm](documentation\confirmPayment_id.png)
+![Example cpnfirm](documentation/confirmPayment_id.png)
 A pagina abaixo deverá aparecer confirmando o "pagamento":
-![Confirm Payment](documentation\confirmPayment.png)
+![Confirm Payment](documentation/confirmPayment.png)
 
 ## Executando testes
 1. Certifique-se que seu server está em execução.
@@ -83,7 +83,7 @@ A pagina abaixo deverá aparecer confirmando o "pagamento":
 ```
 pytest test_pix.py -v 
 ```
-![test](documentation\test.png)
+![test](documentation/test.png)
 
 ## OBS
 Desenvolvido baseado na formação Python Rocketseat modulo: Comunicação em tempo real com Flask
