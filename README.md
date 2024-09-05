@@ -77,7 +77,7 @@ A pagina abaixo deverá aparecer confirmando o "pagamento":
 ![Confirm Payment](documentation/confirmPayment.png)
 
 ## Executando testes
-1. Certifique-se que seu server está em execução.
+1. Certifique-se de que seu server está em execução.
 2. No terminal, navegue até a pasta `tests`
 3. execute o comando:
 ```
